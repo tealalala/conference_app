@@ -8,8 +8,26 @@
 
 # Speaker.create({first_name: "Dani", last_name: "Zaghian", email: "danielle@actualize.co"})
 
-3.times do
-  @speaker = Speaker.new(first_name: FFaker::Name.first_name, last_name: FFaker::Name.last_name, email: FFaker::Internet.email)
-
-  @speaker.save
+# 7.times do
+#   @speaker = Speaker.new(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, age: rand(18..99), gender: Faker::Gender.binary_type)
+#
+#   @speaker.save
+# end
+#
+speakers = Speaker.all
+speakers.each do |speaker|
+  if speaker.gender == "Female"
+    speaker.gender = "F"
+  elsif speaker.gender == "Male"
+    speaker.gender = "M"
+  else
+    speaker.gender = "F"
+  end
+    speaker.save
 end
+#
+# 7.times do
+#   @meeting = Meeting.new(title: Faker::PrincessBride.quote, agenda: Faker::PrincessBride.character, time: "4:00PM - 5:00PM")
+#
+#   @meeting.save
+# end
