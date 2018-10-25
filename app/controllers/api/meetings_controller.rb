@@ -13,7 +13,8 @@ class Api::MeetingsController < ApplicationController
     @meeting = Meeting.new(
       title: params[:input_title],
       agenda: params[:input_agenda],
-      time: params[:input_time]
+      time: params[:input_time],
+      location: params[:input_location]
     )
     @meeting.save
     render 'show.json.jbuilder'
@@ -28,7 +29,8 @@ class Api::MeetingsController < ApplicationController
     @meeting.update(
       title: params[:input_title],
       agenda: params[:input_agenda],
-      time: params[:input_time]
+      time: params[:input_time],
+      location: params[:input_location]
     )
     render 'show.json.jbuilder'
   end
