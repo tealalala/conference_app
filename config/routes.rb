@@ -10,10 +10,12 @@ Rails.application.routes.draw do
     delete '/speakers/:id' => 'speakers#destroy'
 
 
+
     # speakers - params
     get '/speakers' => 'speakers#query_method'
     get '/speakers/:url_seg_var' => 'speakers#url_seg_method'
     post '/speakers' => 'speakers#body_method'
+
 
 
     # meetings

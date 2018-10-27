@@ -19,7 +19,11 @@ class Api::SpeakersController < ApplicationController
       gender: params[:input_gender]
     )
     @speaker.save
-    render 'show.json.jbuilder'
+    if @speaker.save
+      render 'show.json.jbuilder'
+    else
+      render 'errors.json.jbuilder'
+    end
   end
 
   def update
@@ -32,7 +36,11 @@ class Api::SpeakersController < ApplicationController
       gender: params[:input_gender] || gender
     )
     @speaker.save
-    render 'show.json.jbuilder'
+    if @speaker.save
+      render 'show.json.jbuilder'
+    else
+      render 'errors.json.jbuilder'
+    end
   end
 
   def destroy

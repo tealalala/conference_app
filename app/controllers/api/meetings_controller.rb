@@ -17,7 +17,11 @@ class Api::MeetingsController < ApplicationController
       location: params[:input_location]
     )
     @meeting.save
-    render 'show.json.jbuilder'
+    if @speaker.save
+      render 'show.json.jbuilder'
+    else
+      render 'errors.json.jbuilder'
+    end
   end
 
   def update
@@ -32,7 +36,11 @@ class Api::MeetingsController < ApplicationController
       time: params[:input_time],
       location: params[:input_location]
     )
-    render 'show.json.jbuilder'
+    if @speaker.save
+      render 'show.json.jbuilder'
+    else
+      render 'errors.json.jbuilder'
+    end
   end
 
   def destroy
