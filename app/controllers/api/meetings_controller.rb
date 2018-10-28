@@ -14,7 +14,9 @@ class Api::MeetingsController < ApplicationController
       title: params[:input_title],
       agenda: params[:input_agenda],
       time: params[:input_time],
-      location: params[:input_location]
+      location: params[:input_location],
+      remote: false,
+      speaker_id: params[:speaker_id]
     )
     @meeting.save
     if @speaker.save
@@ -34,7 +36,9 @@ class Api::MeetingsController < ApplicationController
       title: params[:input_title],
       agenda: params[:input_agenda],
       time: params[:input_time],
-      location: params[:input_location]
+      location: params[:input_location],
+      remote: false,
+      speaker_id: params[:speaker_id]
     )
     if @speaker.save
       render 'show.json.jbuilder'
